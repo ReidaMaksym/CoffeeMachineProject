@@ -1,0 +1,162 @@
+[
+  {
+    "name": "Espresso",
+    "cost": 1.50,
+    "ingredients": {
+      "coffee_beans_g": 8,
+      "water_ml": 30,
+      "milk_ml": 0,
+      "milk_foam_ml": 0,
+      "chocolate_syrup_ml": 0,
+      "ice_cubes": 0,
+      "cocoa_powder_g": 0,
+      "sugar_g": 0,
+      "black_tea_ml": 0,
+      "spice_mix_g": 0
+    }
+  },
+  {
+    "name": "Americano",
+    "cost": 1.80,
+    "ingredients": {
+      "coffee_beans_g": 8,
+      "water_ml": 120,
+      "milk_ml": 0,
+      "milk_foam_ml": 0,
+      "chocolate_syrup_ml": 0,
+      "ice_cubes": 0,
+      "cocoa_powder_g": 0,
+      "sugar_g": 0,
+      "black_tea_ml": 0,
+      "spice_mix_g": 0
+    }
+  },
+  {
+    "name": "Cappuccino",
+    "cost": 2.50,
+    "ingredients": {
+      "coffee_beans_g": 8,
+      "water_ml": 30,
+      "milk_ml": 100,
+      "milk_foam_ml": 50,
+      "chocolate_syrup_ml": 0,
+      "ice_cubes": 0,
+      "cocoa_powder_g": 0,
+      "sugar_g": 0,
+      "black_tea_ml": 0,
+      "spice_mix_g": 0
+    }
+  },
+  {
+    "name": "Latte",
+    "cost": 2.70,
+    "ingredients": {
+      "coffee_beans_g": 8,
+      "water_ml": 30,
+      "milk_ml": 150,
+      "milk_foam_ml": 30,
+      "chocolate_syrup_ml": 0,
+      "ice_cubes": 0,
+      "cocoa_powder_g": 0,
+      "sugar_g": 0,
+      "black_tea_ml": 0,
+      "spice_mix_g": 0
+    }
+  },
+  {
+    "name": "Flat White",
+    "cost": 2.90,
+    "ingredients": {
+      "coffee_beans_g": 10,
+      "water_ml": 30,
+      "milk_ml": 120,
+      "milk_foam_ml": 0,
+      "chocolate_syrup_ml": 0,
+      "ice_cubes": 0,
+      "cocoa_powder_g": 0,
+      "sugar_g": 0,
+      "black_tea_ml": 0,
+      "spice_mix_g": 0
+    }
+  },
+  {
+    "name": "Macchiato",
+    "cost": 2.20,
+    "ingredients": {
+      "coffee_beans_g": 8,
+      "water_ml": 30,
+      "milk_ml": 0,
+      "milk_foam_ml": 20,
+      "chocolate_syrup_ml": 0,
+      "ice_cubes": 0,
+      "cocoa_powder_g": 0,
+      "sugar_g": 0,
+      "black_tea_ml": 0,
+      "spice_mix_g": 0
+    }
+  },
+  {
+    "name": "Mocha",
+    "cost": 3.10,
+    "ingredients": {
+      "coffee_beans_g": 8,
+      "water_ml": 30,
+      "milk_ml": 100,
+      "milk_foam_ml": 30,
+      "chocolate_syrup_ml": 20,
+      "ice_cubes": 0,
+      "cocoa_powder_g": 0,
+      "sugar_g": 0,
+      "black_tea_ml": 0,
+      "spice_mix_g": 0
+    }
+  },
+  {
+    "name": "Iced Latte",
+    "cost": 3.00,
+    "ingredients": {
+      "coffee_beans_g": 8,
+      "water_ml": 30,
+      "milk_ml": 120,
+      "milk_foam_ml": 0,
+      "chocolate_syrup_ml": 0,
+      "ice_cubes": 5,
+      "cocoa_powder_g": 0,
+      "sugar_g": 0,
+      "black_tea_ml": 0,
+      "spice_mix_g": 0
+    }
+  },
+  {
+    "name": "Hot Chocolate",
+    "cost": 2.80,
+    "ingredients": {
+      "coffee_beans_g": 0,
+      "water_ml": 0,
+      "milk_ml": 200,
+      "milk_foam_ml": 0,
+      "chocolate_syrup_ml": 0,
+      "ice_cubes": 0,
+      "cocoa_powder_g": 20,
+      "sugar_g": 10,
+      "black_tea_ml": 0,
+      "spice_mix_g": 0
+    }
+  },
+  {
+    "name": "Chai Latte",
+    "cost": 3.20,
+    "ingredients": {
+      "coffee_beans_g": 0,
+      "water_ml": 0,
+      "milk_ml": 150,
+      "milk_foam_ml": 0,
+      "chocolate_syrup_ml": 0,
+      "ice_cubes": 0,
+      "cocoa_powder_g": 0,
+      "sugar_g": 8,
+      "black_tea_ml": 50,
+      "spice_mix_g": 5
+    }
+  }
+]
