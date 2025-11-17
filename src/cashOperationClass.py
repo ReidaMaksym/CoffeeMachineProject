@@ -1,4 +1,4 @@
-from drinkClass import Drink
+from src.drinkClass import Drink
 from typing import TypedDict
 
 class PaymentResult(TypedDict):

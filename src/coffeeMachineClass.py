@@ -1,5 +1,5 @@
-from drinkClass import Drink
-from cashOperationClass import MoneyOperation
+from src.drinkClass import Drink
+from src.cashOperationClass import MoneyOperation
 import json
 
 def read_json_file(file_name: str):
@@ -31,7 +31,7 @@ class CoffeeMachine:
 
         drinks = []
 
-        data = read_json_file("drinks.json")
+        data = read_json_file("./data/drinks.json")
         
         for drink in data:
             new_drink = Drink(drink.get('name'), drink.get('cost'), drink.get('ingredients'))
@@ -43,22 +43,22 @@ class CoffeeMachine:
     @classmethod
     def set_machine_resourses(cls) -> dict:
 
-        data = read_json_file('machineResourses.json')
+        data = read_json_file('./data/machineResourses.json')
         return data
     
 
     @classmethod
     def set_machine_cash_balance(cls):
-        data = read_json_file('balance.json')
+        data = read_json_file('./data/balance.json')
         return data.get('balance')
 
 
     def save_data_to_files(self):
 
-        with open('machineResourses.json', 'w') as file:
+        with open('./data/machineResourses.json', 'w') as file:
              json.dump(self.resources, file, indent=4)
 
-        with open('balance.json', 'w') as file2:
+        with open('./data/balance.json', 'w') as file2:
             data = {
                 "balance": self.money_balance
             }

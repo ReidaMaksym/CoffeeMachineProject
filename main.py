@@ -1,4 +1,4 @@
-from coffeeMachineClass import CoffeeMachine
+from src.coffeeMachineClass import CoffeeMachine
 
 machine_is_on = True
 machine = CoffeeMachine("Tets make", "Test model")
