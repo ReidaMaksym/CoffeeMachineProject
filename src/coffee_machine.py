@@ -1,5 +1,5 @@
-from src.drinkClass import Drink
-from src.cashOperationClass import MoneyOperation
+from src.drink import Drink
+from src.cash_operation import MoneyOperation
 import json
 
 def read_json_file(file_name: str):
@@ -100,49 +100,53 @@ class CoffeeMachine:
         for ingridient in self.resources:
             if self.resources[ingridient] < drink.ingridients[ingridient]:
                 return {
-                    "make_coffee": False,
+                    "success": False,
                     "message": f"Can't make {drink.name}. Not enough of {ingridient}"
                 }
         
         return {
-            "make_coffee": True,
+            "success": True,
             "massage": ""
         }
     
 
-    def make_drink(self, drink_name: str):
-        
+    def make_drink(self, drink_name: str, payment: float) -> dict:
+
         drink = self.get_drink_by_name(drink_name)
-        is_sufficient = self.is_resource_sufficient(drink)
 
-        if drink:
+        if not drink:
+            return {
+                "success": False,
+                "message": f"Sorry, machine can't make '{drink_name}'"
+            }
+        
+        resource_check = self.is_resource_sufficient(drink)
 
-            if is_sufficient.get('make_coffee'):
+        if not resource_check['success']:
+            return {
+                "success": False,
+                "message": resource_check['message']
+            }
 
-                payment = MoneyOperation.receive_payment()
-                processed_payment = MoneyOperation.process_payment(payment, drink)
+        processed_payment = MoneyOperation.process_payment(payment, drink)
 
-                if processed_payment.get('make_coffee'):
+        if not processed_payment['success']:
+            return {
+                "success": False,
+                "message": "Sorry, not enough money"
+            }
 
-                    for ingredient in drink.ingridients:
-                        if drink.ingridients[ingredient] > 0:
-                            self.resources[ingredient] -= drink.ingridients[ingredient]
+        for ingridient in drink.ingridients:
+            if drink.ingridients[ingridient] > 0:
+                self.resources[ingridient] -= drink.ingridients[ingridient]
+        
+        self.money_balance += drink.cost
 
-                    if processed_payment.get('change') > 0:
-                        change = processed_payment.get('change')
-                        print(f"Here's your change of {round(change, 2)}")
+        return {
+            "success": True,
+            "message": f"Here is your {drink.name}, enjoy",
+            "change": round(processed_payment['change'], 2) if processed_payment['change'] > 0 else 0.0
+        }
 
-                    self.money_balance += drink.cost
-
-                    print(f"Here's your {drink_name}, enjoy")
-
-                if processed_payment.get('make_coffee') is False:
-                    print("Sorry, you inserted not enough money")
-
-            else:
-                print(is_sufficient.get('message'))
-
-        else:
-            print(f"Sorry, the machine can't make: {drink_name}")
                 
 

@@ -1,8 +1,8 @@
-from src.drinkClass import Drink
+from src.drink import Drink
 from typing import TypedDict
 
 class PaymentResult(TypedDict):
-    make_coffee: bool
+    success: bool
     change: int | float
 
 class MoneyOperation:
@@ -46,19 +46,19 @@ class MoneyOperation:
         
         if user_payment == drink.cost:
             return {
-                "make_coffee": True,
+                "success": True,
                 "change": 0
             }
         
         elif user_payment > drink.cost:
             return {
-                "make_coffee": True,
+                "success": True,
                 "change": user_payment - drink.cost
             }
         
         else:
             return {
-                "make_coffee": False,
+                "success": False,
                 "change": 0
             }
 
