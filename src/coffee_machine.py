@@ -106,7 +106,7 @@ class CoffeeMachine:
         
         return {
             "success": True,
-            "massage": ""
+            "massage": "Enough resources"
         }
     
 
@@ -117,7 +117,7 @@ class CoffeeMachine:
         if not drink:
             return {
                 "success": False,
-                "message": f"Sorry, machine can't make '{drink_name}'"
+                "message": f"Sorry, machine can't make '{drink_name}', money refunded"
             }
         
         resource_check = self.is_resource_sufficient(drink)
@@ -125,7 +125,7 @@ class CoffeeMachine:
         if not resource_check['success']:
             return {
                 "success": False,
-                "message": resource_check['message']
+                "message": f"{resource_check['message']}. Money refunded"
             }
 
         processed_payment = MoneyOperation.process_payment(payment, drink)
@@ -133,7 +133,7 @@ class CoffeeMachine:
         if not processed_payment['success']:
             return {
                 "success": False,
-                "message": "Sorry, not enough money"
+                "message": "Sorry, not enough money. Money refunded"
             }
 
         for ingridient in drink.ingridients:

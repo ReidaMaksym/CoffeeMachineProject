@@ -7,39 +7,34 @@ class PaymentResult(TypedDict):
 
 class MoneyOperation:
 
+    AVAILABLE_NOMINALS = [0.01, 0.05, 0.1, 0.25, 1.0, 2.0, 5.0, 10.0]
+
     @classmethod
-    def receive_payment(cls) -> float | int:
+    def receive_payment(cls, nominals: list) -> dict:
+
+        if len(nominals) == 0:
+            return {
+                "success": False,
+                "message": "No money incerted",
+                "balance": 0.0
+            }
+
+        for nominal in nominals:
+
+            if nominal not in MoneyOperation.AVAILABLE_NOMINALS:
+                return {
+                    "success": False,
+                    "message": f"The machine can't acceept: {nominal}. Money refunded",
+                    "balance": 0.0
+                }
         
-        print("The machine accepts only: 1 cent (0.01), 5 cent (0.05), 10 cent (0.1), 25 cent (0.25), 1$, 2$, 5$, 10$")
 
-        dollar_and_cents_nominals = [0.01, 0.05, 0.1, 0.25, 1.0, 2.0, 5.0, 10.0]
-
-        balance = 0
-        inserting_money = True
-
-        while inserting_money:
-            
-            try:
-
-                payment = float(input("Inset bill or coin: "))
-                
-                if payment in dollar_and_cents_nominals:
-                    balance += payment
-                    print("Processed...")
-                    print(f"You incerted {balance}")
-
-                    stop_incetring = input("To stop incerping, type 'stop', to 'continue': ").lower()
-
-                    if stop_incetring == 'stop':
-                        inserting_money = False
-                else:
-                    print(f"Sorry, the machine can't process {payment}")
-                
-            except ValueError:
-                print("Machine can't process your nominal, try again")
+        return {
+            "success": True,
+            "message": "The nominals are are valid",
+            "balance": sum(nominals)
+        }
         
-        return balance
-    
 
     @classmethod
     def process_payment(cls, user_payment: float, drink: Drink) -> PaymentResult:
