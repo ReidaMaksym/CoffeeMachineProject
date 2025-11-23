@@ -19,15 +19,43 @@ class MoneyOperation:
                 "balance": 0.0
             }
 
+        invalid_nominals = []
+        valid_nominals = []
+
+        # for nominal in nominals:
+
+        #     if nominal not in MoneyOperation.AVAILABLE_NOMINALS:
+        #         return {
+        #             "success": False,
+        #             "message": f"The machine can't acceept: {nominal}. Money refunded",
+        #             "balance": 0.0
+        #         }
+
         for nominal in nominals:
 
-            if nominal not in MoneyOperation.AVAILABLE_NOMINALS:
-                return {
-                    "success": False,
-                    "message": f"The machine can't acceept: {nominal}. Money refunded",
-                    "balance": 0.0
-                }
+            if nominal in MoneyOperation.AVAILABLE_NOMINALS:
+                valid_nominals.append(nominal)
+            else:
+                invalid_nominals.append(nominal)
         
+        
+        if len(invalid_nominals) > 0 and len(valid_nominals) > 0:
+            return {
+                "success": True,
+                "message": f"The machine can't accept: {invalid_nominals}, these money are refunded",
+                "invalid_nominals": invalid_nominals,
+                "balance": sum(valid_nominals)
+            }
+        
+
+        if len(invalid_nominals) > 0 and len(valid_nominals) == 0:
+            return {
+                "success": False,
+                "message": f"The machine can't accept: {invalid_nominals}, these money are refunded",
+                "invalid_nominals": invalid_nominals,
+                "balance": 0.0
+            }
+
 
         return {
             "success": True,

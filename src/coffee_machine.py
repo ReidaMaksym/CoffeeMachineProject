@@ -106,7 +106,7 @@ class CoffeeMachine:
         
         return {
             "success": True,
-            "massage": "Enough resources"
+            "message": "Enough resources"
         }
     
 
